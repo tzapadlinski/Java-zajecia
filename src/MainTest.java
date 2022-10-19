@@ -1,10 +1,11 @@
 import java.io.IOException;
 
 public class MainTest {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         Seance s = new Seance(11);
-        FIleService fs = new FIleService();
-
+        FileService fs = new FileService();
         fs.writeFile(s, "dupaa.txt");
+        Seance g = (Seance) fs.readFile("dupaa.txt");
+        System.out.println(g);
     }
 }
