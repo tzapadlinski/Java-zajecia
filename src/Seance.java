@@ -11,4 +11,9 @@ public class Seance implements Serializable {
     public int getDupa() {
         return dupa;
     }
+
+    @Override
+    public String toString() {
+        return "" + serialVersionUID + "\n" + dupa;
+    }
 }
