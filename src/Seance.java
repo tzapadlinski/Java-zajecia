@@ -16,4 +16,7 @@ public class Seance implements Serializable {
     public String toString() {
         return "" + serialVersionUID + "\n" + dupa;
     }
+    
+    
+    
 }
