@@ -2,7 +2,6 @@ import java.io.*;
 
 public class FileService {
 
-
     public void writeFile(Object savedObj, String filename) throws IOException {
         FileOutputStream f = new FileOutputStream(filename);
         ObjectOutputStream out = new ObjectOutputStream(f);
