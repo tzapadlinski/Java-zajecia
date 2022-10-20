@@ -1,6 +1,8 @@
 import java.util.HashMap;
 
 public class SeatsService {
+    //TODO
+    
     private int seatsInRow;
 
     private HashMap<Character, HashMap<Integer,Boolean>> availableSeats;
