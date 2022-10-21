@@ -25,6 +25,11 @@ public class Seance implements Serializable {
         this.availableSeats = availableSeats;
     }
 
+    public Seance(String title)
+    {
+        this.title = title;
+    }
+
     public String getTitle() {
         return title;
     }
