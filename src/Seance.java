@@ -17,17 +17,24 @@ public class Seance implements Serializable {
     private PEGI pegi;
     private HashMap<Character, HashMap<Integer,Boolean>> availableSeats;
 
-    public Seance(String title, LocalDate date, LocalTime time, PEGI pegi, HashMap<Character, HashMap<Integer, Boolean>> availableSeats) {
+    private SeatsService seatsService;
+
+    public Seance(String title, LocalDate date, LocalTime time, PEGI pegi, SeatsService seatsService) {
         this.title = title;
         this.date = date;
         this.time = time;
         this.pegi = pegi;
-        this.availableSeats = availableSeats;
+        this.seatsService = seatsService;
     }
 
     public Seance(String title)
     {
         this.title = title;
+    }
+
+    public SeatsService getSeatsService()
+    {
+        return seatsService;
     }
 
     public String getTitle() {
