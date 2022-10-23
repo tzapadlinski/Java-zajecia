@@ -27,7 +27,7 @@ public class CustomerRepository {
 
     public Collection<Customer> getAllCustomers() throws IOException, ClassNotFoundException {
         Optional<Object> optionalObject = fileService.readFile(fileName);
-        if(!optionalObject.isPresent()){
+        if(optionalObject.isEmpty()){
             throw new IOException("No objects were read. Try changing fileName.");
         }
         Collection<Customer> customers =(Collection<Customer>) optionalObject.get();
