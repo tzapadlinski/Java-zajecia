@@ -64,4 +64,15 @@ public class Seance implements Serializable {
     public void setAvailableSeats(HashMap<Character, HashMap<Integer, Boolean>> availableSeats) {
         this.availableSeats = availableSeats;
     }
+
+    @Override
+    public String toString() {
+        return "Seance{" +
+                "title='" + title + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                ", pegi=" + pegi +
+                ", availableSeats=" + availableSeats +
+                '}';
+    }
 }
