@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Optional;
 
-//TODO tak samo jak z Customer Repository
 public class SeanceRepository {
     private final FileService fileService;
     private String fileName;

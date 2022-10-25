@@ -3,7 +3,6 @@ import java.util.Collection;
 import java.util.Optional;
 
 
-//TODO dodam funkcje jeśli zdecydujemy się na zapisywanie/czytanie klientów wg danego pola.
 public class CustomerRepository {
     private final FileService fileService;
     private String fileName;
