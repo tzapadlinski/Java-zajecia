@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class TicketsService {
     public static List<Seance> seanceList;
@@ -10,34 +7,34 @@ public class TicketsService {
         //to trzeba potem zmienic na wczytanie z listy statycznej i powiazac seatsservice z konkretnym seansem
        // customer.setSeance(seance);
 
-        /*
+
 
         int iterator = 1;
-        Map<Integer,Integer> list = new ArrayList<Integer,Iterator>();
+        Map<Integer,Integer> list = new HashMap<Integer,Integer>();
 
-        for(int i = 0; i<NazwaKlasyStat.listaSeansow.size(); i++
+        for(int i = 0; i<StaticContainer.seanceList.size(); i++)
         {
-            if(NazwaKlasyStat.listaSeansow.get(i).areThereAvaiableSeats)
-               { System.out.println(String.valueOf(iterator+" "+NazwaKlasyStat.listaSeansow.get(i).getTitle));
-               list.add(iterator,i);
+            if(StaticContainer.seanceList.get(i).getSeatsService().areThereAvailableSeats())
+               { System.out.println(String.valueOf(iterator+" "+StaticContainer.seanceList.get(i).getTitle()));
+               list.put(iterator,i);
                iterator++;
                }
         }
-        System.out.println("Wprowadz numer seansu:")
+        System.out.println("Wprowadz numer seansu:");
         Scanner scan = new Scanner(System.in);
         int number = scan.nextInt();
         scan.nextLine();
         while(!list.containsKey(number))
         {
-            System.out.println("Wprowadz poprawny numer seansu:")
+            System.out.println("Wprowadz poprawny numer seansu:");
             number = scan.nextInt();
             scan.nextLine();
         }
 
-        seance = NazwaKlasyStat.listaSeansow.get(list.get(number));
-        seatsService = seance.getSseatService();
+        seance = StaticContainer.seanceList.get(list.get(number));
+        seatsService = seance.getSeatsService();
 
-         */
+
 
         if(seatsService.getNumberOfSeats()>0) {
             String s = "ABCDEFG";
