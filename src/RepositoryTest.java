@@ -7,7 +7,7 @@ import java.util.List;
 public class RepositoryTest {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-
+        /*
         Seance s1 = new Seance("Morbius", LocalDate.now(), LocalTime.now(), PEGI.none, new HashMap<Character, HashMap<Integer, Boolean>>());
         Seance s2 = new Seance("The Room", LocalDate.now(), LocalTime.now(), PEGI.adult, new HashMap<Character, HashMap<Integer, Boolean>>());
         List<Seance> seances = List.of(s1, s2);
@@ -25,5 +25,7 @@ public class RepositoryTest {
         customerRepository.setFileName("customersOtherNameTest.txt");
         customerRepository.saveAllCustomers(customers);
         System.out.println(customerRepository.getAllCustomers());
+        
+         */
     }
 }

@@ -7,6 +7,7 @@ public class SeatsService {
 
     private HashMap<Character, HashMap<Integer,Boolean>> availableSeats;
     private int numberOfSeats;
+    private String rows = "ABCDEFG";
 
     //true - wolne
     //false - zajete
@@ -75,6 +76,21 @@ public class SeatsService {
             String value = availableSeats.get(row).toString();
             System.out.println(key + " " + value);
         }
+    }
+
+    public boolean areThereAvailableSeats()
+    {
+
+        for(int i = 0; i<rows.length(); i++)
+        {
+            for(int q = 1; q<=seatsInRow;q++)
+            {
+                if(availableSeats.get(rows.charAt(i)).get(q))
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     public int getNumberOfSeats() {

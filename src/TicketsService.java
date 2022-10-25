@@ -8,7 +8,36 @@ public class TicketsService {
 
     public static void buyTicket(Customer customer, Seance seance, SeatsService seatsService){
         //to trzeba potem zmienic na wczytanie z listy statycznej i powiazac seatsservice z konkretnym seansem
-        customer.setSeance(seance);
+       // customer.setSeance(seance);
+
+        /*
+
+        int iterator = 1;
+        Map<Integer,Integer> list = new ArrayList<Integer,Iterator>();
+
+        for(int i = 0; i<NazwaKlasyStat.listaSeansow.size(); i++
+        {
+            if(NazwaKlasyStat.listaSeansow.get(i).areThereAvaiableSeats)
+               { System.out.println(String.valueOf(iterator+" "+NazwaKlasyStat.listaSeansow.get(i).getTitle));
+               list.add(iterator,i);
+               iterator++;
+               }
+        }
+        System.out.println("Wprowadz numer seansu:")
+        Scanner scan = new Scanner(System.in);
+        int number = scan.nextInt();
+        scan.nextLine();
+        while(!list.containsKey(number))
+        {
+            System.out.println("Wprowadz poprawny numer seansu:")
+            number = scan.nextInt();
+            scan.nextLine();
+        }
+
+        seance = NazwaKlasyStat.listaSeansow.get(list.get(number));
+        seatsService = seance.getSseatService();
+
+         */
 
         if(seatsService.getNumberOfSeats()>0) {
             String s = "ABCDEFG";
@@ -23,6 +52,23 @@ public class TicketsService {
                 column = Integer.parseInt(String.valueOf(userInput.charAt(1)));
                 if(row == '0')
                     break;
+                if(!seatsService.areThereAvailableSeats())
+                {
+                    System.out.println("Nie ma wiecej wolnych miejsc. Wybierz 1 aby przejsc do platnosci lub 0 aby anulowac");
+                    int choice = scanner.nextInt();
+                    scanner.nextLine();
+                    while((choice!=1)&&(choice!=0))
+                    {
+                        System.out.println("Wybierz 1 aby przejsc do platnosci lub 0 aby anulowac");
+                        choice = scanner.nextInt();
+                        scanner.nextLine();
+                    }
+
+                    if(choice==0)
+                        return;
+
+                    break;
+                }
                 if (row < s.charAt(0) || row > s.charAt(s.length() - 1) || column < 0 || column > seatsService.getSeatsInRow())
                     System.out.println("Niedozwolony wybor. Prosze wpisac poprawna wartosc");
                 else if (!seatsService.isSeatFree(row, column))
