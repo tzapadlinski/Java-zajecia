@@ -6,12 +6,14 @@ public class SeatsService {
     private int seatsInRow;
 
     private HashMap<Character, HashMap<Integer,Boolean>> availableSeats;
+    private int numberOfSeats;
 
     //true - wolne
     //false - zajete
 
     public SeatsService() {
         seatsInRow = 15;
+        numberOfSeats = 15*7;
         availableSeats = new HashMap<>() {{
             put('A', initializeColumns());
             put('B', initializeColumns());
@@ -22,11 +24,15 @@ public class SeatsService {
             put('G', initializeColumns());
         }};
 
-        this.initializeColumns();
+        //System.out.println(availableSeats);
+
+
+       // this.initializeColumns();
     }
 
     public SeatsService(int seatsInRow) {
         this.seatsInRow = seatsInRow;
+        numberOfSeats = seatsInRow*7;
         availableSeats = new HashMap<>() {{
             put('A', initializeColumns());
             put('B', initializeColumns());
@@ -43,6 +49,7 @@ public class SeatsService {
         for(int i=1; i<=this.seatsInRow; i++) {
             innerMap.put(i, true);
         }
+        System.out.print(innerMap);
         return innerMap;
     }
 
@@ -55,6 +62,8 @@ public class SeatsService {
     }
 
     public boolean isSeatFree(Character row, Integer column) {
+
+        //System.out.print(availableSeats.get(row).get(1));
         if(availableSeats.get(row).get(column) == true)
             return true;
         else return false;
@@ -67,6 +76,16 @@ public class SeatsService {
             System.out.println(key + " " + value);
         }
     }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    public int getSeatsInRow() {
+        return seatsInRow;
+    }
+
+
 
 
 }

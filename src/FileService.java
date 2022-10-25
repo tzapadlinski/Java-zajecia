@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Optional;
 
 public class FileService {
 
@@ -9,10 +10,11 @@ public class FileService {
         out.close();
     }
 
-    public Object readFile(String filename) throws IOException, ClassNotFoundException {
+    public Optional<Object> readFile(String filename) throws IOException, ClassNotFoundException {
         FileInputStream f = new FileInputStream(filename);
         ObjectInputStream in = new ObjectInputStream(f);
-        Object object = in.readObject();
-        return object;
+        Object readObject = in.readObject();
+        Optional<Object> optionalObject = Optional.of(readObject);
+        return optionalObject;
     }
 }
