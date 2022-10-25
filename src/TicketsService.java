@@ -3,7 +3,7 @@ import java.util.*;
 public class TicketsService {
     public static List<Seance> seanceList;
 
-    public static void buyTicket(Customer customer, Seance seance, SeatsService seatsService){
+    public static void buyTicket(Customer customer){
         //to trzeba potem zmienic na wczytanie z listy statycznej i powiazac seatsservice z konkretnym seansem
        // customer.setSeance(seance);
 
@@ -31,8 +31,8 @@ public class TicketsService {
             scan.nextLine();
         }
 
-        seance = StaticContainer.seanceList.get(list.get(number));
-        seatsService = seance.getSeatsService();
+        Seance seance = StaticContainer.seanceList.get(list.get(number));
+        SeatsService seatsService = seance.getSeatsService();
 
 
 
@@ -82,9 +82,27 @@ public class TicketsService {
             System.out.print("Nastepuje przekierowanie do platnosci prosze wpisac pin z aplikacji bankowej: ");
             scanner.nextLine();
             System.out.println("Platnosc zfinalizowana");
-            drawSeats(seatsService,s);
+            drawSeatsTest(seatsService,s);
         }else{
             System.out.println("Brak miejsc");
+        }
+    }
+
+    public static void drawSeatsTest(SeatsService seatsService,String s)
+    {
+        System.out.println("Aktualny stan miejsc");
+        for(int i = 0; i<s.length(); i++)
+        {
+            System.out.print(String.valueOf(s.charAt(i) + "  "));
+            for(int q = 1; q<=seatsService.getSeatsInRow(); q++)
+            {
+                if(seatsService.isSeatFree(s.charAt(i),q))
+                    System.out.print(String.valueOf(q+" "));
+                else
+                    System.out.print(String.valueOf("  "));
+            }
+
+            System.out.println();
         }
     }
 

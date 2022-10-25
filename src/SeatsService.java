@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class SeatsService {
+public class SeatsService implements Serializable {
     //TODO
     
     private int seatsInRow;
@@ -13,7 +14,7 @@ public class SeatsService {
     //false - zajete
 
     public SeatsService() {
-        seatsInRow = 15;
+        seatsInRow = 9;
         numberOfSeats = 15*7;
         availableSeats = new HashMap<>() {{
             put('A', initializeColumns());
